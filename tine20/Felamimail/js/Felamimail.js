@@ -788,6 +788,10 @@ Tine.Felamimail.getEmailStringFromContact = function(contact) {
     }
     result += '>';
     
+    if (contact.get('org_unit') != '' && contact.get('org_unit') != null ) {
+        result += '  ' + contact.get('org_unit');
+    }
+    
     return result;
 };
 

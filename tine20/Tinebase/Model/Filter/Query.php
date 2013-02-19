@@ -69,7 +69,8 @@ class Tinebase_Model_Filter_Query extends Tinebase_Model_Filter_Abstract
                  foreach ($queries as $query) {
                      $whereParts = array();
                      foreach ($this->_options['fields'] as $qField) {
-                         $whereParts[] = $db->quoteIdentifier($_backend->getTableName() . '.' . $qField) . ' ' . Tinebase_Backend_Sql_Command::getLike($db) . ' ?';
+                         $tableNameField = $db->quoteIdentifier($_backend->getTableName() . '.' . $qField);
+                         $whereParts[] = Tinebase_Backend_Sql_Command::getUnaccent($db, $tableNameField) . Tinebase_Backend_Sql_Command::getLike($db) . Tinebase_Backend_Sql_Command::getUnaccent($db, '?');
                      }                        
                      $whereClause = '';
                      if (!empty($whereParts)) {

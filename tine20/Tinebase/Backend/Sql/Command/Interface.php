@@ -52,6 +52,14 @@ interface Tinebase_Backend_Sql_Command_Interface
     /**
      * 
      * @param Zend_Db_Adapter_Abstract $adapter
+     * @param string $field
+     * @return string
+     */
+    public static function getUnaccent($adapter, $field);
+    
+    /**
+     * 
+     * @param Zend_Db_Adapter_Abstract $adapter
      * @param date $date      
      */
     public static function setDate($adapter, $date);	

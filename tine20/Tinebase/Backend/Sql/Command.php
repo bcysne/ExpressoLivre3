@@ -103,6 +103,19 @@ class Tinebase_Backend_Sql_Command implements Tinebase_Backend_Sql_Command_Inter
      * 
      * @param Zend_Db_Adapter_Abstract $adapter
      * @param string $field
+     * @return string
+     */
+    public static function getUnaccent($adapter, $field)
+    {
+        $command = self::_getCommand($adapter);
+        	    	
+    	return $command->getUnaccent($adapter, $field);
+    }
+    
+    /**
+     * 
+     * @param Zend_Db_Adapter_Abstract $adapter
+     * @param string $field
      * @param mixed $returnIfTrue
      * @param mixed $returnIfFalse
      * @return string

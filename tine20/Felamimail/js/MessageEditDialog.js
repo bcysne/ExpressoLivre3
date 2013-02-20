@@ -514,13 +514,6 @@ Ext.namespace('Tine.Felamimail');
             this.onKeyPress(e);
         }, this);
         
-        this.recipientGrid.on('blur', function(editor) {
-            // do not let the blur event reach the editor grid if we want the subjectField to have focus
-            if (this.subjectField.hasFocus) {
-                return false;
-            }
-        }, this);
-        
         this.htmlEditor.on('keydown', function(e) {
             if (e.getKey() == e.ENTER && e.ctrlKey) {
                 this.checkUnknownContacts();
@@ -1101,6 +1094,9 @@ Ext.namespace('Tine.Felamimail');
                                     + field.getValue()
                                 );
                             }
+                        },
+                        'focus': function(field) {
+                            this.subjectField.focus(true, 100);
                         }
                     }
                 }, this.htmlEditor

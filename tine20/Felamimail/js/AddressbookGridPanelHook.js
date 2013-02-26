@@ -125,16 +125,31 @@ Ext.apply(Tine.Felamimail.AddressbookGridPanelHook.prototype, {
      */
     onComposeEmail: function(btn) {
         var sm = this.getContactGridPanel().grid.getSelectionModel(),
-            mailAddresses = sm.isFilterSelect ? sm.getSelectionFilter() : this.getMailAddresses(this.getContactGridPanel().grid.getSelectionModel().getSelections());
+            mailAddresses = sm.isFilterSelect ? sm.getSelectionFilter() : this.getMailAddresses(this.getContactGridPanel().grid.getSelectionModel().getSelections()),
+            selectCount = sm.getCount();
         
-        var defaults = Tine.Felamimail.Model.Message.getDefaultData();
-        defaults.body = Tine.Felamimail.getSignature();
-        defaults.to = mailAddresses;
+        if (selectCount > 50){
+            
+            mailAddresses = [];
+            Ext.MessageBox.show({
+                title: '',
+                msg: _('Number of contacts exceeds the maximum of 50 permitted.'),
+                buttons: Ext.MessageBox.OK,
+                scope: this,
+                icon: Ext.MessageBox.ERROR
+            });
+            
+        } else{
         
-        var record = new Tine.Felamimail.Model.Message(defaults, 0);
-        var popupWindow = Tine.Felamimail.MessageEditDialog.openWindow({
-            record: record
-        });
+            var defaults = Tine.Felamimail.Model.Message.getDefaultData();
+            defaults.body = Tine.Felamimail.getSignature();
+            defaults.to = mailAddresses;
+
+            var record = new Tine.Felamimail.Model.Message(defaults, 0);
+            var popupWindow = Tine.Felamimail.MessageEditDialog.openWindow({
+                record: record
+            });
+        }
     },
 
     

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tine 2.0 - Felamimail\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-02-15 16:43-0300\n"
-"Last-Translator: Lavoisier Vieira <lavoisier.vieira@serpro.gov.br>\n"
+"PO-Revision-Date: 2013-02-26 16:38-0300\n"
+"Last-Translator: Rommel de Brito Cysne <rommel.cysne@serpro.gov.br>\n"
 "Language-Team: Tine 2.0 Translators <rommel.cysne@serpro.gov.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -1246,4 +1246,8 @@ msgstr "Você não possui permissão para esta operação na pasta compartilhada
 #: js/Model.js:141
 msgid "Subject/From/CC/Body"
 msgstr "Assunto/De/CC/Corpo"
+
+#: js/AddressbookGridPanelHook.js:136
+msgid "Number of contacts exceeds the maximum of 50 permitted."
+msgstr "Número de contatos excede o máximo de 50 permitidos."
 

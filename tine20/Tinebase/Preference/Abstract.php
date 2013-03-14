@@ -433,11 +433,11 @@ abstract class Tinebase_Preference_Abstract extends Tinebase_Backend_Sql_Abstrac
 
         } else {
             $preference = $this->_rawDataToRecord($queryResult[0]);
-            if ($_value === Tinebase_Model_Preference::DEFAULT_VALUE) {
-                // delete if new value = use default
-                $this->delete($preference->getId());
-                $action = 'Reset';
-            } else {
+            if ($_value !== Tinebase_Model_Preference::DEFAULT_VALUE) {
+//                // delete if new value = use default
+//                $this->delete($preference->getId());
+//                $action = 'Reset';
+//            } else {
                 $preference->value = $_value;
                 $this->update($preference);
                 $action = 'Updated';
